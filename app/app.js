@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { render } from "react-dom";
 import { StaticMap } from "react-map-gl";
-import DeckGL, { GeoJsonLayer, ArcLayer } from "deck.gl";
+import DeckGL, { GeoJsonLayer } from "deck.gl";
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
@@ -9,20 +9,21 @@ const MAPBOX_TOKEN = process.env.MapboxAccessToken; // eslint-disable-line
 // source: Natural Earth http://www.naturalearthdata.com/ via geojson.xyz
 const LANGUAGE = "data_750.geojson";
 
+// source: https://colorbrewer2.org/#type=qualitative&scheme=Set3&n=12
 const colormap = {
-  C16001_E002: [163, 18, 23, 200],
-  C16001_E003: [236, 127, 214, 200],
-  C16001_E006: [43, 36, 94, 200],
-  C16001_E009: [220, 114, 5, 200],
-  C16001_E012: [254, 159, 197, 200],
-  C16001_E015: [195, 116, 246, 200],
-  C16001_E018: [190, 26, 52, 200],
-  C16001_E021: [138, 98, 188, 200],
-  C16001_E024: [36, 146, 235, 200],
-  C16001_E027: [97, 225, 152, 200],
-  C16001_E030: [221, 155, 80, 200],
-  C16001_E033: [46, 99, 217, 200],
-  C16001_E036: [218, 119, 167, 200],
+  C16001_E002: [141, 211, 199, 200],
+  C16001_E003: [255, 255, 179, 200],
+  C16001_E006: [190, 186, 218, 200],
+  C16001_E009: [251, 128, 114, 200],
+  C16001_E012: [128, 177, 211, 200],
+  C16001_E015: [253, 180, 98, 200],
+  C16001_E018: [179, 222, 105, 200],
+  C16001_E021: [252, 205, 229, 200],
+  C16001_E024: [217, 217, 217, 200],
+  C16001_E027: [188, 128, 189, 200],
+  C16001_E030: [204, 235, 197, 200],
+  C16001_E033: [255, 237, 111, 200],
+  C16001_E036: [255, 255, 255, 200],
 };
 
 function getFillColor(feature) {
@@ -54,7 +55,7 @@ class Root extends Component {
         // Styles
         filled: true,
         pointRadiusMinPixels: 1,
-        pointRadiusScale: 50,
+        pointRadiusScale: 75,
         getFillColor: getFillColor,
         // Interactive props
         pickable: true,
