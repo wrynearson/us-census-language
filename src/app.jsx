@@ -145,7 +145,7 @@ function App() {
         Languages Spoken at Home
       </h1>
       <a
-        href="https://github.com/wrynearson/us-census-language/blob/main/src/README.md"
+        href="https://github.com/wrynearson/us-census-language/blob/main/README.md"
         target="_blank"
         rel="noreferrer noopener"
         style={{
