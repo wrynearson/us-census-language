@@ -213,7 +213,7 @@ function App() {
           longitude: -100,
           latitude: 40,
           zoom: 3,
-          pitch: 20,
+          pitch: 0,
         }}
         controller={true}
         layers={layers}
