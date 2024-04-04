@@ -8,6 +8,8 @@ Languages spoken at home (question C16001) at the Census Tract level for 2020. T
 
 For every 250 speakers of a language, a point is placed randomly within the tract. Each language scatterplot layer is saved as a .geojson file.
 
+Data prep and processing can be found in the notebook [c16001](https://github.com/wrynearson/us-census-language/blob/main/data-prep/c16001.ipynb)
+
 ## Visualization
 
 Using Deck.gl & React, these geojson files are then loaded individually as layers. Users can toggle layers on and off. Hovering over a language name in the legend shows only that language on the map.
