@@ -128,6 +128,7 @@ class Root extends Component {
     if (info.object) {
       // eslint-disable-next-line
       console.log(`${info.object.properties.language_name}`);
+      return info.object.properties.language_name;
     }
   }
 
@@ -343,16 +344,41 @@ class Root extends Component {
     // }));
 
     return (
-      <DeckGL
-        initialViewState={INITIAL_VIEW_STATE}
-        controller={true}
-        layers={layers}
-      >
-        <StaticMap
-          mapboxApiAccessToken={MAPBOX_TOKEN}
-          mapStyle="mapbox://styles/mapbox/dark-v11"
-        />
-      </DeckGL>
+      <div style={{ position: "auto", height: "100vh" }}>
+        <DeckGL
+          initialViewState={INITIAL_VIEW_STATE}
+          controller={true}
+          layers={layers}
+        >
+          <StaticMap
+            mapboxApiAccessToken={MAPBOX_TOKEN}
+            mapStyle="mapbox://styles/mapbox/dark-v11"
+          />
+        </DeckGL>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            margin: "10px",
+            background: "white",
+            padding: "10px",
+          }}
+        >
+          <h3>Legend</h3>
+          <ol>
+            <li>
+              <div
+                style={{
+                  background: "rgba(141, 211, 199, 200)",
+                }}
+              >
+                Spanish
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
     );
   }
 }
