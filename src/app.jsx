@@ -129,10 +129,11 @@ function App() {
         right: 0,
         margin: "1rem",
         padding: "1rem",
-        background: "rgba(100,100,100,.9)",
+        borderRadius: ".5rem",
+        background: "rgba(100,100,100,.8)",
       }}
     >
-      <h3
+      <h1
         style={{
           display: "flex",
           color: "white",
@@ -141,8 +142,23 @@ function App() {
           fontSize: "1.2rem",
         }}
       >
-        Legend
-      </h3>
+        Languages Spoken at Home
+      </h1>
+      <a
+        href="https://github.com/wrynearson/us-census-language/blob/main/src/README.md"
+        target="_blank"
+        rel="noreferrer noopener"
+        style={{
+          display: "flex",
+          color: "white",
+          justifyContent: "center",
+          fontFamily: "sans-serif",
+          fontSize: "1rem",
+          paddingBottom: ".5rem",
+        }}
+      >
+        About
+      </a>
       {layerConfigs.map((layer) => (
         <div
           key={layer.id}

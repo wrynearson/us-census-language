@@ -10,11 +10,11 @@ For every 250 speakers of a language, a point is placed randomly within the trac
 
 Data prep and processing can be found in the notebook [c16001](https://github.com/wrynearson/us-census-language/blob/main/data-prep/c16001.ipynb)
 
-## Visualization
+## Visualization
 
 Using Deck.gl & React, these geojson files are then loaded individually as layers. Users can toggle layers on and off. Hovering over a language name in the legend shows only that language on the map.
 
-## Limitations
+## Limitations
 
 Areas with less than 250 speakers of a language don't appear. This is, for now, a technical limitation as the geojson files were getting very large.
 
