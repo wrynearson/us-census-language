@@ -12,19 +12,19 @@ const layerConfigs = [
   {
     id: "C16001_E003",
     label: "Spanish",
-    url: `${baseurl}/../data/C16001_E003_250.geojson`,
+    url: `${baseurl}/./data/C16001_E003_250.geojson`,
     color: [141, 211, 199, 200],
   },
   {
     id: "C16001_E006",
     label: "French",
-    url: `${baseurl}/../data/C16001_E006_250.geojson`,
+    url: `${baseurl}/./data/C16001_E006_250.geojson`,
     color: [255, 255, 179, 200],
   },
   {
     id: "C16001_E009",
     label: "German",
-    url: `${baseurl}/data/C16001_E009_250.geojson`,
+    url: `${baseurl}/../data/C16001_E009_250.geojson`,
     color: [190, 186, 218, 200],
   },
   {
