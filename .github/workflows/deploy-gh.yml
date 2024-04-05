@@ -28,7 +28,7 @@ jobs:
         working-directory: ./src # Specify working directory
         # env:
         #   # If you have environment variables to include
-        #   VITE_BASE_URL: "/us-census-language/"
+          PUBLIC_URL: "/us-census-language/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
