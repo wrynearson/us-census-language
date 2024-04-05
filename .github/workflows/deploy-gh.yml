@@ -26,6 +26,7 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: ./src # Specify working directory
+        path: "./dist"
         env:
           # If you have environment variables to include
           VITE_BASE_URL: "/us-census-language/"
