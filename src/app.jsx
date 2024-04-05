@@ -5,7 +5,7 @@ import { DeckGL } from "@deck.gl/react";
 import InteractiveMap from "react-map-gl";
 import { GeoJsonLayer } from "@deck.gl/layers";
 
-const baseurl = import.meta.env.PUBLIC_URL || "";
+const baseurl = import.meta.env.BASE_URL || "";
 
 // Your layer configurations
 const layerConfigs = [
