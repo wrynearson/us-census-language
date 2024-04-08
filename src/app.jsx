@@ -5,6 +5,8 @@ import { DeckGL } from "@deck.gl/react";
 import InteractiveMap from "react-map-gl";
 import { GeoJsonLayer } from "@deck.gl/layers";
 
+import Tooltip from "./components/tooltip";
+
 const baseurl = import.meta.env.BASE_URL || "";
 
 // Your layer configurations
@@ -102,6 +104,8 @@ function App() {
     setHoveredLanguage(null);
   };
 
+  const [hoverInfo, setHoverInfo] = useState({});
+
   const layers = layerConfigs
     .filter(
       (config) =>
@@ -119,6 +123,7 @@ function App() {
           pointRadiusScale: 75,
           pickable: true,
           autoHighlight: true,
+          onHover: (info) => setHoverInfo(info),
           // Additional layer properties
         })
     );
@@ -224,6 +229,7 @@ function App() {
           mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}
           mapStyle="mapbox://styles/mapbox/dark-v10"
         />
+        <Tooltip info={hoverInfo} />
       </DeckGL>
       <Legend
         layerConfigs={layerConfigs}
