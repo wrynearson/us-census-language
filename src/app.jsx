@@ -1,22 +1,31 @@
 import React, { useState } from "react";
-import ReactMapGL from "react-map-gl";
 import { render } from "react-dom";
 import { DeckGL } from "@deck.gl/react";
 import InteractiveMap from "react-map-gl";
 import { GeoJsonLayer } from "@deck.gl/layers";
+import { TileLayer } from "@deck.gl/geo-layers";
+import { ScatterplotLayer } from "@deck.gl/layers";
+import { BitmapLayer } from "@deck.gl/layers";
 
 import Tooltip from "./components/tooltip";
 
+import { registerLoaders } from "@loaders.gl/core";
+import { MVTLoader } from "@loaders.gl/mvt";
+
+registerLoaders([MVTLoader]);
+
 const baseurl = import.meta.env.BASE_URL || "";
+
+var tilesURL = `https://c.tile.openstreetmap.org/{z}/{x}/{y}.png`;
 
 // Your layer configurations
 const layerConfigs = [
-  {
-    id: "C16001_E003",
-    label: "Spanish",
-    url: `${baseurl}/./data/C16001_E003_250.geojson`,
-    color: [141, 211, 199, 200],
-  },
+  // {
+  //   id: "C16001_E003",
+  //   label: "Spanish",
+  //   url: `${baseurl}/./data/C16001_E003_250.geojson`,
+  //   color: [141, 211, 199, 200],
+  // },
   {
     id: "C16001_E006",
     label: "French",
@@ -120,13 +129,35 @@ function App() {
           getFillColor: config.color,
           filled: true,
           pointRadiusMinPixels: 1,
-          pointRadiusScale: 75,
+          pointRadiusScale: 50,
           pickable: true,
           autoHighlight: true,
           onHover: (info) => setHoverInfo(info),
           // Additional layer properties
         })
     );
+
+  const layer = new TileLayer({
+    id: "TileLayer",
+    data: tilesURL,
+    loaders: [MVTLoader],
+
+    renderSubLayers: (props) => {
+      const { boundingBox } = props.tile;
+
+      return new BitmapLayer(props, {
+        data: null,
+        image: props.data,
+        bounds: [
+          boundingBox[0][0],
+          boundingBox[0][1],
+          boundingBox[1][0],
+          boundingBox[1][1],
+        ],
+      });
+    },
+    pickable: true,
+  });
 
   const Legend = ({ layerConfigs, visibleLayers, toggleLayerVisibility }) => (
     <div
@@ -223,7 +254,7 @@ function App() {
           pitch: 0,
         }}
         controller={true}
-        layers={layers}
+        layers={[layer, layers]}
       >
         <InteractiveMap
           mapboxAccessToken={import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}

@@ -11,6 +11,8 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@loaders.gl/core": "^4.2.0",
+    "@loaders.gl/mvt": "^4.2.0",
     "deck.gl": "^9.0.0",
     "mapbox-gl": "^3.0.0",
     "react": "^18.0.0",
