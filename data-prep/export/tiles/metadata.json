@@ -1,0 +1,16 @@
+{
+"name": "tiles",
+"description": "tiles",
+"version": "2",
+"minzoom": "0",
+"maxzoom": "6",
+"center": "-75.937500,38.788894,6",
+"bounds": "-168.828462,17.943575,-65.273105,71.305509",
+"antimeridian_adjusted_bounds": "-168.828462,17.943575,-65.273105,71.305509",
+"type": "overlay",
+"strategies": "[{\"dropped_by_rate\":223611},{\"dropped_by_rate\":222232},{\"dropped_by_rate\":233177},{\"dropped_by_rate\":245539},{\"dropped_by_rate\":208859},{\"dropped_by_rate\":143700},{}]",
+"format": "pbf",
+"generator": "tippecanoe v2.53.0",
+"generator_options": "tippecanoe -zg -e tiles --drop-densest-as-needed TEST_1000.geojson",
+"json": "{\"vector_layers\":[{\"id\":\"TEST_1000\",\"description\":\"\",\"minzoom\":0,\"maxzoom\":6,\"fields\":{\"language\":\"String\"}}],\"tilestats\":{\"layerCount\":1,\"layers\":[{\"layer\":\"TEST_1000\",\"count\":224531,\"geometry\":\"Point\",\"attributeCount\":1,\"attributes\":[{\"attribute\":\"language\",\"count\":13,\"type\":\"string\",\"values\":[\"C16001_E002\",\"C16001_E003\",\"C16001_E006\",\"C16001_E009\",\"C16001_E012\",\"C16001_E015\",\"C16001_E018\",\"C16001_E021\",\"C16001_E024\",\"C16001_E027\",\"C16001_E030\",\"C16001_E033\",\"C16001_E036\"]}]}]}}"
+}
